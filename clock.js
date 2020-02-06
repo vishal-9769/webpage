@@ -6,10 +6,6 @@ let sec="0"+"0";
 let ms="0"+"0";
 let mnth;
 function run(){
-/* if( ms == 60 ){
-    sec++
-} */
-
 ms++
 if ( ms== 100){
     sec++
@@ -50,6 +46,7 @@ document.getElementById("clock").innerHTML=st;
 function clock(){
     ti=setInterval(clk,1000);
     document.getElementById("start").innerHTML="Resume";
+    document.getElementById("start").disabled = true; 
 }
 
 function start(){
@@ -60,14 +57,22 @@ function start(){
 function stop(){
      clearInterval(timerid);
     clearInterval(ti);
+    document.getElementById("start").disabled = false; 
    
 }
 
 function reset(){
-    let rt = "0"+"0" + ":" + "0"+"0" + ":" + "0"+"0" + ":" + "0"+"0";
-    
+ h="0"+"0";
+ m="0"+"0";
+ sec="0"+"0";
+ ms="0"+"0";
+    let rt = h + ":" +m + ":" +sec + ":" +ms;
+
     document.getElementById("stopwatch").innerHTML=rt;
     document.getElementById("start").innerHTML="Start";
+    document.getElementById("start").disabled = false; 
+    clearInterval(timerid);
+
 }
 
 function dt(){
